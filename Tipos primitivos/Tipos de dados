@@ -1,0 +1,45 @@
+✅ 1. Numéricos
+a) Inteiros
+Usados para armazenar números inteiros (sem casas decimais):
+
+| Tipo               | Tamanho | Intervalo com `SIGNED`          | Intervalo com `UNSIGNED` |
+| ------------------ | ------- | ------------------------------- | ------------------------ |
+| `TINYINT`          | 1 byte  | -128 a 127                      | 0 a 255                  |
+| `SMALLINT`         | 2 bytes | -32.768 a 32.767                | 0 a 65.535               |
+| `MEDIUMINT`        | 3 bytes | -8.388.608 a 8.388.607          | 0 a 16.777.215           |
+| `INT` ou `INTEGER` | 4 bytes | -2.147.483.648 a 2.147.483.647  | 0 a 4.294.967.295        |
+| `BIGINT`           | 8 bytes | -9 quatrilhões a +9 quatrilhões | 0 a 18 quintilhões       |
+
+b) Números com ponto flutuante e precisão
+Usados para armazenar números com casas decimais:
+| Tipo                               | Tamanho  | Precisão                            |
+| ---------------------------------- | -------- | ----------------------------------- |
+| `FLOAT(p)`                         | 4 bytes  | Aproximada (7 dígitos)              |
+| `DOUBLE` ou `DOUBLE PRECISION`     | 8 bytes  | Aproximada (15-16 dígitos)          |
+| `DECIMAL(M, D)` ou `NUMERIC(M, D)` | Variável | Exata (ex: `DECIMAL(5,2)` → 999.99) |
+
+✅ 2. Texto (Strings)
+| Tipo         | Tamanho máximo      | Observações                                   |
+| ------------ | ------------------- | --------------------------------------------- |
+| `CHAR(n)`    | até 255 bytes       | Tamanho fixo (preenche com espaços)           |
+| `VARCHAR(n)` | até 65.535 bytes\*  | Tamanho variável                              |
+| `TEXT`       | 65.535 bytes        | Não pode ter `DEFAULT`                        |
+| `TINYTEXT`   | 255 bytes           |                                               |
+| `MEDIUMTEXT` | 16 MB               |                                               |
+| `LONGTEXT`   | 4 GB                |                                               |
+| `ENUM`       | 1 a 65.535 valores  | Lista de valores possíveis                    |
+| `SET`        | Conjunto de valores | Pode armazenar múltiplos valores predefinidos |
+
+✅ 3. Datas e Horas
+| Tipo        | Formato               | Descrição             |
+| ----------- | --------------------- | --------------------- |
+| `DATE`      | `YYYY-MM-DD`          | Data (ex: 2025-05-06) |
+| `TIME`      | `HH:MM:SS`            | Hora (ex: 14:30:00)   |
+| `DATETIME`  | `YYYY-MM-DD HH:MM:SS` | Data e hora           |
+| `TIMESTAMP` | Igual ao `DATETIME`   | Armazena em UTC       |
+| `YEAR`      | `YYYY`                | Apenas ano (ex: 2025) |
+
+✅ 4. Tipos Lógicos (Booleanos)
+| Tipo                | Representação interna                         |
+| ------------------- | --------------------------------------------- |
+| `BOOLEAN` ou `BOOL` | É um `TINYINT(1)` (0 = falso, 1 = verdadeiro) |
